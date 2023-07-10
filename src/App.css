@@ -1,38 +1,264 @@
 .App {
   text-align: center;
+  .wrapper {
+    display: grid;
+  }
 }
+/*diseño responsive*/
+@media only screen and (max-width: 767px) {
+  * {
+    font-size: 2.5vw;
+  }
+  /*layout general---------------------------------------*/
+  .layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 100px 40px auto 1fr 250px 100px;
+    width: 100%;
+    /*uso grid templates area para distribuir los contenidos mara una web responsive*/
+    grid-template-areas: "head" "navv" "aside" "main" "pilares" "footer";
+  }
+  /*header--------------------------------------------*/
+  .layout-header {
+    grid-area: head;
+    display: flex;
+    justify-content: center;
+    height: auto;
+    background-color: #393646;
+  }
+  .layout-header img {
+    align-self: center;
+    height: 100px;
+    padding: 16px;
+  }
+  /*aside---------------------------------------*/
+  .layout-aside {
+    grid-area: aside;
+    display: flex;
+    height: auto;
+    flex-direction: column;
+    justify-content: space-evenly;
+    background-color: gainsboro;
+  }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
+  .layout-aside h1 {
+    display: inline-flex;
+    justify-content: center;
+  }
+  .layout-aside p {
+    display: inline-flex;
+    font: Arial, Helvetica, sans-serif;
+    font-size: medium;
+  }
+  /*Nav--------------------------------------------------------------------*/
+  .layout-nav {
+    grid-area: navv;
+    display: flex;
+    height: 40px;
+    justify-content: space-around;
+    background-color: #4f4557;
+  }
+  .layout-nav p {
+    display: flex;
+    color: #dcdcdc;
+    margin: auto;
+    padding: 11px;
+    flex: 1 0;
+    justify-content: center;
+  }
+  .layout-nav p:hover {
+    background-color: #393646;
+  }
+  .layout-nav img {
+    display: inline-flex;
+    align-self: center;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: 20px;
+    height: 30px;
+    width: 30px;
+  }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+  /*pilares------------------------------------------------------------*/
+
+  .layout-pilares {
+    grid-area: pilares;
+    display: flex;
+    flex-direction: row;
+    height: auto;
+    background-color: #dcdcdc;
+  }
+  .layout-pilares .layout-pilares-pilar {
+    display: flex;
+    flex: 1 0;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+  .layout-pilares .layout-pilares-pilar div {
+    text-align: center;
+  }
+  .layout-pilares .layout-pilares-pilar .img-pilar {
+    height: 50px;
+    width: 50px;
+    align-self: center;
+  }
+  .layout-pilares .layout-pilares-pilar .texto-pilar {
+    display: inline;
+    vertical-align: middle;
+    line-height: normal;
+  }
+  /*etilos footer-----------------------------------------------------------------------*/
+  .layout-footer {
+    grid-area: footer;
+    display: flex;
+    justify-content: space-around;
+    background-color: #6d5d6e;
+  }
+  .layout-footer .texto-footer {
+    color: #dcdcdc;
+    align-self: center;
+  }
+  .layout-footer .img-footer {
+    width: auto;
+  }
+  /*main--------------------------------------------------------------------------*/
+  .layout-main {
+    grid-area: main;
+    display: flex;
+    background-color: #dcdcdc;
+  }
+  .layout-main .ImagenSlide {
+    height: 1fr;
+    max-width: 100%;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
+/*ahora para escritorio*/
+@media only screen and (min-width: 768px) {
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+  /*layout general---------------------------------------*/
+  .layout {
+    display: grid;
+    grid-template-rows: 100px 40px 1fr 250px 100px;
+    grid-template-columns: 50% 50%;
   }
-  to {
-    transform: rotate(360deg);
+  /*header--------------------------------------------*/
+  .layout-header {
+    
+    display: flex;
+    justify-content: center;
+    grid-column: 1/span 2;
+    height: auto;
+    background-color: #393646;
+  }
+  .layout-header img {
+    align-self: center;
+    height: 100px;
+    padding: 16px;
+  }
+  /*aside---------------------------------------*/
+  .layout-aside {
+    grid-area: 3/1/4/span 1;
+    display: flex;
+    height: auto;
+    flex-direction: column;
+    justify-content: space-evenly;
+    background-color: gainsboro;
+  }
+
+  .layout-aside h1 {
+    display: inline-flex;
+    justify-content: center;
+  }
+  .layout-aside p {
+    display: inline-flex;
+    font: Arial, Helvetica, sans-serif;
+    font-size: medium;
+    margin:20px;
+  }
+  /*Nav--------------------------------------------------------------------*/
+  .layout-nav {
+    transition: background-color 0.5s;
+    grid-area: 2/1/span 1/span 2;
+    display: flex;
+    height: 40px;
+    justify-content: space-around;
+    background-color: #4f4557;
+  }
+  .layout-nav p {
+    display: flex;
+    color: #dcdcdc;
+    margin: auto;
+    padding: 8px;
+    flex: 1 0;
+    justify-content: center;
+  }
+  .layout-nav p:hover {
+    background-color: #393646;
+  }
+  .layout-nav img {
+    display: inline-flex;
+    align-self: center;
+    justify-content: center;
+    margin-left: 50px;
+    margin-right: 76px;
+    height: 30px;
+    width: 30px;
+  }
+
+  /*pilares------------------------------------------------------------*/
+
+  .layout-pilares {
+    grid-column: 1/3;
+    display: flex;
+    flex-direction: row;
+    height: auto;
+    background-color: #dcdcdc;
+  }
+  .layout-pilares .layout-pilares-pilar {
+    display: flex;
+    flex: 1 0;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+  .layout-pilares .layout-pilares-pilar div {
+    text-align: center;
+  }
+  .layout-pilares .layout-pilares-pilar .img-pilar {
+    height: 50px;
+    width: 50px;
+    align-self: center;
+  }
+  .layout-pilares .layout-pilares-pilar .texto-pilar {
+    display: inline;
+    vertical-align: middle;
+    line-height: normal;
+  }
+  /*estilos footer-----------------------------------------------------------------------*/
+  .layout-footer {
+    height: 100px;
+    grid-column: 1/3;
+    display: flex;
+    justify-content: space-around;
+    background-color: #6d5d6e;
+  }
+  .layout-footer .texto-footer {
+    color: #dcdcdc;
+    align-self: center;
+  }
+  .layout-footer .img-footer {
+    width: auto;
+  }
+  /*main--------------------------------------------------------------------------*/
+  .layout-main {
+    grid-area: 3/2/span 1/span 1;
+    display: flex;
+    background-color: #dcdcdc;
+  }
+  .layout-main .ImagenSlide {
+    height: 1fr;
+    max-width: 100%;
   }
 }
